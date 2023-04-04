@@ -35,10 +35,10 @@ public class FinishGame : MonoBehaviour
             //Change la couleur du mur
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
 
-            //Récupere l'index de la scene en cours
+            //Rï¿½cupere l'index de la scene en cours
             int noScene = SceneManager.GetActiveScene().buildIndex;
 
-            if (noScene == 2)
+            if (noScene == 3)
             {
 
                 //Afficher les informations sur mon jeu

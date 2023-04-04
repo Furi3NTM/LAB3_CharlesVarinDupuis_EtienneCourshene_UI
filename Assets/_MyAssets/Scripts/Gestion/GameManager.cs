@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     //ATTRIBUTS
-    private int _pointage;
+    private int _pointage = 0;
     public bool timeStarted = false;
     public double startTime = 0;
 
@@ -31,36 +31,46 @@ public class GameManager : MonoBehaviour
     //START
     private void Start()
     {
-        _pointage = 0;
-        Instruction();
+       
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             Renderer r1 = GameObject.Find("LowerCylinder").GetComponent<MeshRenderer>();
             r1.enabled = false;
             Renderer r2 = GameObject.Find("UpperCylinder").GetComponent<MeshRenderer>();
             r2.enabled = false;
         }
+    
     }
 
-    //MÉTHODES
-    private static void Instruction()
+    //UPDATE
+     private void Update()
     {
-        Debug.Log("*** Course a obstacle ***");
-        Debug.Log("*** Atteindre la fin du parcours le plus rapidement possible ***");
-        Debug.Log("*** Chaque obstacle touché entraine une pénalitée ***");
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
+   
+    //MÃ‰THODES
     public void AugmenterPointage()
     {
         _pointage++;
-        Debug.Log("Le pointage est de " + _pointage);
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        uiManager.ChangerPointage(_pointage);
     }
 
     public int GetPointage()
     {
         return _pointage;
     }
+
+    public double GetTempsDepart()
+    {
+        return startTime;
+    }
+
     public void PersonnageABouge()
     {
         timeStarted = true;
