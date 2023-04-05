@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         timeStarted = true;
         startTime = Time.time;
-        Debug.Log($"Premier mouvement du joeur: {startTime}");
+        Debug.Log($"Premier mouvement du joueur: {startTime}");
     }
 
 

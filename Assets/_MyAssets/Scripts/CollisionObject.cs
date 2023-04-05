@@ -13,7 +13,7 @@ public class CollisionObject : MonoBehaviour
     void Start()
     {
         initialColor = GetComponent<Renderer>().material.color; // Get the initial color of the object
-        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -24,7 +24,6 @@ public class CollisionObject : MonoBehaviour
             GetComponent<Renderer>().material.color = collisionColor; // Change the color of the object on collision
        
             gameManager.AugmenterPointage();
-
 
             // Schedule a coroutine to change the color back after 4 seconds
             StartCoroutine(ResetColor());
