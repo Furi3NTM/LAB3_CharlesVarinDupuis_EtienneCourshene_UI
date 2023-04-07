@@ -11,7 +11,7 @@ public class FinishGame : MonoBehaviour
     private bool _finish;
     private bool _personnageABouge;
 
-    //Utiliser les m?thodes de d'autre classe
+    //Utiliser les methodes de d'autre classe
     private GameManager _gameManager;
     private Player _player;
 
@@ -28,24 +28,14 @@ public class FinishGame : MonoBehaviour
         if (collision.gameObject.tag == "Player" && _toucher == false)
         {
 
-            int erreurs = _gameManager.GetPointage();
-            double startTime = _gameManager.startTime;
-            double total = Time.time + erreurs - startTime;
-
             //Change la couleur du mur
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
 
             //R�cupere l'index de la scene en cours
             int noScene = SceneManager.GetActiveScene().buildIndex;
 
-            if (noScene == 3)
+            if (noScene == 4)
             {
-
-                //Afficher les informations sur mon jeu
-                Debug.Log("BRAVO!, ton temps est de : " + (Time.time - startTime) + " secondes");
-                Debug.Log("Vous avez accroche " + erreurs + " obstacles");
-                Debug.Log("Votre temps total est donc de " + total + " secondes");
-
                 //Arreter le joueur
                 _player.StopJoueur();
             }
@@ -54,8 +44,13 @@ public class FinishGame : MonoBehaviour
                 SceneManager.LoadScene(noScene + 1);
             }
 
-
         }
+    }
+
+    public double GetTemps()
+    {
+        double startTime = _gameManager.startTime;
+        return (Time.time - startTime);
     }
 
 

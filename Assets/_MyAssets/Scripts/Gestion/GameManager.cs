@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
     //UPDATE
      private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 0)
         {
             Destroy(gameObject);
         }
@@ -64,6 +63,7 @@ public class GameManager : MonoBehaviour
     public int GetPointage()
     {
         return _pointage;
+        Debug.Log(_pointage);
     }
 
     public double GetTempsDepart()
