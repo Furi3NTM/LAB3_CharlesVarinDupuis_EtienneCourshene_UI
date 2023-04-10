@@ -62,4 +62,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         _enPause = false;
     }
+
+  
 }

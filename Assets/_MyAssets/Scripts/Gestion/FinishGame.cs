@@ -24,14 +24,14 @@ public class FinishGame : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //mettre l'objet qui VA toucher pas l'objet qui EST touch?
+        
         if (collision.gameObject.tag == "Player" && _toucher == false)
         {
 
             //Change la couleur du mur
             gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
 
-            //R�cupere l'index de la scene en cours
+            
             int noScene = SceneManager.GetActiveScene().buildIndex;
 
             if (noScene == 4)
@@ -42,6 +42,7 @@ public class FinishGame : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(noScene + 1);
+                Time.timeScale = 0;
             }
 
         }

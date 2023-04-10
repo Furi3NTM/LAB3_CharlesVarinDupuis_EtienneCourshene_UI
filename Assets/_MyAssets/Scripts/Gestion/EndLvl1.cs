@@ -20,17 +20,12 @@ public class EndLvl1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        //mettre l'objet qui VA toucher pas l'objet qui EST touch?
         if (collision.gameObject.tag == "Player" && _toucher == false)
         {
-
-            //Récupere l'index de la scene en cours
             int noScene = SceneManager.GetActiveScene().buildIndex;
 
-
-
-
             SceneManager.LoadScene(noScene + 1);
+             Time.timeScale = 0;
 
 
         }

@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
     public int GetPointage()
     {
         return _pointage;
-        Debug.Log(_pointage);
     }
 
     public double GetTempsDepart()
