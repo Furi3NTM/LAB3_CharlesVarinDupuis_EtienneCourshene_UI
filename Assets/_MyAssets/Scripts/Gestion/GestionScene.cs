@@ -8,11 +8,14 @@ public class GestionScene : MonoBehaviour
 
     [SerializeField] private GameObject menuInstruction = default;
      private bool _voirInstruction = false;
+     
 
       public void ChangerSceneSuivante()
     {
         int noScene = SceneManager.GetActiveScene().buildIndex; 
         SceneManager.LoadScene(noScene + 1);
+       
+
     }
 
     public void Quitter()

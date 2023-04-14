@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         GameManager gameManager = FindObjectOfType<GameManager>();
         playerMoved = gameManager.timeStarted;
-        
+
     }
 
 
@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
                 playerMoved = true;
                 GameManager gameManager = FindObjectOfType<GameManager>();
                 gameManager.PersonnageABouge();
-                
             }
         }
         else if (Input.GetKey("down") || Input.GetKey("s"))
